@@ -93,7 +93,21 @@ namespace Mandelbrot.model
             }
             else
             {
-                returnColor = Color.White;
+                /**
+                 *  TODO
+                 *  Auslagern!!! rechnungen wenn möglich nur einmal! (Diese methode wird bei jeder koordinate aufgerufen)
+                 **/
+
+                //Stufengrüsse der Farbänderung
+                int colorStep = 255 / maxIterations;
+                int colorDiff = colorStep * iterationCounter;
+
+                //Variablen für die Farbanteile
+                int colorRed = 255 - colorDiff;
+                int colorGreen = 0 + colorDiff;
+                int colorBlue = 0;
+
+                returnColor = Color.FromArgb(colorRed, colorGreen, colorBlue);
             }
 
             return returnColor;

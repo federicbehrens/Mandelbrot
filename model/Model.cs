@@ -102,10 +102,14 @@ namespace Mandelbrot.model
                 int colorStep = 255 / maxIterations;
                 int colorDiff = colorStep * iterationCounter;
 
+                double colorDiffLog = Math.Log(iterationCounter, maxIterations);
+
+                
+
                 //Variablen für die Farbanteile
-                int colorRed = 255 - colorDiff;
-                int colorGreen = 0 + colorDiff;
-                int colorBlue = 0;
+                int colorRed = 0;
+                int colorGreen = (int)(255 - (255 * colorDiffLog));
+                int colorBlue = (int)(255 * colorDiffLog);
 
                 returnColor = Color.FromArgb(colorRed, colorGreen, colorBlue);
             }
